@@ -1,0 +1,65 @@
+<div class="page" [class.theme-ar]="language==='ar-LB'"
+                 [class.theme-fr]="language==='fr-FR'"
+                 [class.theme-en]="language==='en-US'">
+
+  <!-- Header -->
+  <header class="hero">
+    <div class="brand">
+      <div class="logo">ɪ</div>
+      <div>
+        <h1>Lingua · IPA Transcriber</h1>
+        <p class="tagline">{{ tagline }}</p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab" [class.active]="language==='ar-LB'" (click)="setLang('ar-LB')">
+        <span class="dot"></span> Arabic (Lebanese)
+      </button>
+      <button class="tab" [class.active]="language==='fr-FR'" (click)="setLang('fr-FR')">
+        <span class="dot"></span> French
+      </button>
+      <button class="tab" [class.active]="language==='en-US'" (click)="setLang('en-US')">
+        <span class="dot"></span> English (US)
+      </button>
+      <button class="swap" title="Swap layout" (click)="swapPanels()">⇄</button>
+    </nav>
+  </header>
+
+  <!-- Panes -->
+  <section class="panes" [class.stacked]="isStacked">
+    <!-- Input -->
+    <div class="pane">
+      <label class="label">Input</label>
+      <textarea
+        [(ngModel)]="text"
+        (input)="onInput()"
+        class="textarea"
+        [placeholder]="placeholder"
+        rows="7"></textarea>
+      <div class="hint">Auto-transcribes as you type •</div>
+    </div>
+
+    <!-- Output -->
+    <div class="pane">
+      <div class="output-head">
+        <span class="label">IPA</span>
+        <div class="actions">
+          <span class="spinner" *ngIf="loading"></span>
+          <button class="mini" (click)="copyIpa()" [disabled]="!ipaOnly">Copy</button>
+        </div>
+      </div>
+
+      <div class="output">
+        <div class="ipa" [class.placeholder]="!ipaOnly">
+          {{ ipaOnly || 'Result will appear here' }}
+        </div>
+      </div>
+
+      <div class="toast" *ngIf="copied">Copied ✓</div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <small>Made for speech & learning — perfect for linguists, SLPs, and language lovers.</small>
+  </footer>
+</div>
