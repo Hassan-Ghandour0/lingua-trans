@@ -9,9 +9,9 @@
     }
 
 
-.theme-ar { --brand:#7c3aed; --accent:#f1e7ff; }
-.theme-fr { --brand:#2563eb; --accent:#e8f0ff; }
-.theme-en { --brand:#16a34a; --accent:#e7f7ec; }
+.theme-ar { --brand:#071563; --accent:#74a1f5; }
+.theme-fr { --brand:#cc5555; --accent:#74a1f5; }
+.theme-en { --brand:#05a13e; --accent:#74a1f5; }
 
 /* Header */
 .hero { max-width:1200px; margin:0 auto 16px; display:flex; flex-direction:column; gap:12px; }
@@ -50,7 +50,7 @@ h1 { margin:0; font-weight:800; letter-spacing:.2px; }
 
 .output { background:#f8fafc; border:1px dashed var(--ring); border-radius:12px; padding:14px; min-height:160px; }
 .ipa { font-size:32px; font-weight:800; letter-spacing:.3px; }
-.ipa.placeholder { color:#9ca3af; font-weight:600; font-size:18px; }
+.ipa.placeholder { color:#574edd; font-weight:600; font-size:18px; }
 
 /* toast + spinner */
 .toast { position:absolute; right:16px; bottom:16px; background:#111827; color:#fff; padding:6px 10px;
@@ -66,5 +66,4 @@ kbd { background:#111827; color:#fff; padding:1px 5px; border-radius:6px; font-s
 
 /* Responsive */
 @media (max-width:920px) { .panes{ grid-template-columns:1fr } }
-
 
