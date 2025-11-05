@@ -32,10 +32,10 @@
       <label class="label">Input</label>
       <textarea
         [(ngModel)]="text"
-        (input)="onInput()"
+        (input)="onInput($event)"
         class="textarea"
         [placeholder]="placeholder"
-        rows="7"></textarea>
+        rows="1"></textarea>
       <div class="hint">Auto-transcribes as you type •</div>
     </div>
 

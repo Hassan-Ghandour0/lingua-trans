@@ -9,7 +9,7 @@ import { debounceTime, Subject } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   [x: string]: any;
@@ -38,11 +38,12 @@ export class AppComponent {
   }
   swapPanels() { this.isStacked = !this.isStacked; }
 
-  onInput() { this.textChanged.next(); }
-  autoResize(el: HTMLTextAreaElement): void {
-    el.style.height = 'auto';
-    el.style.height = el.scrollHeight + 'px';
+  onInput(ev: Event) {
+    this.autoResize(ev);    
+    this.textChanged.next();   
   }
+  
+  
   
   copyIpa() {
     if (!this.ipaOnly) return;
@@ -68,7 +69,7 @@ export class AppComponent {
 
   private updateCopy() {
     if (this.language === 'ar-LB') {
-      this.tagline = 'حوّل أي نص إلى IPA واضح — بسرعة ودقة.';
+      this.tagline = 'حوّل النص إلى IPA — بسرعة، بوضوح، وبأعلى دقة.';
       this.placeholder = 'اكتب النص هون…';
     } else if (this.language === 'fr-FR') {
       this.tagline = 'Transcrivez n’importe quel texte en API — clair et net.';
@@ -78,4 +79,10 @@ export class AppComponent {
       this.placeholder = 'Type or paste your text…';
     }
   }
+    autoResize(event: Event): void {
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto'; // reset
+    textarea.style.height = textarea.scrollHeight + 'px'; // set to full height
+  }
+  
 }
