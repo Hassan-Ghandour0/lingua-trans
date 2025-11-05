@@ -37,8 +37,8 @@ jobs:
          
           npm run build -- --base-href /lingua/
 
-      - name: Upload build artifacts (optional)
-        uses: actions/upload-artifact@v3
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: |
