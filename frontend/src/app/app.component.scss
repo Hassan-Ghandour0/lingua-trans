@@ -50,7 +50,7 @@ h1 { margin:0; font-weight:800; letter-spacing:.2px; }
 
 .output { background:#f8fafc; border:1px dashed var(--ring); border-radius:16px; padding:14px; min-height:160px; }
 .ipa { font-size:19px; font-weight:100; letter-spacing:.3px; }
-.ipa.placeholder { color:#6d806b; font-weight:50; font-size:18px; }
+.ipa.placeholder { color:#6d806b; font-weight:60; font-size:18px; }
 
 /* toast + spinner */
 .toast { position:absolute; right:16px; bottom:16px; background:#111827; color:#fff; padding:6px 10px;
@@ -77,3 +77,33 @@ kbd { background:#111827; color:#fff; padding:1px 5px; border-radius:6px; font-s
     border: none;     
   }
   
+  .speak-container { position: relative; }
+
+  .speak-fab {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: 8px;
+    left: 8px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ring);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    cursor: pointer;
+    z-index: 1; 
+  }
+.speak-fab:hover { background: #f8fafc; }
+.speak-fab.active {
+  border-color: #34d399;
+  background: #ecfdf5;
+}
+
+.speak-fab .ico {
+  width: 18px;
+  height: 18px;
+  fill: #374151; /* Slate-700 */
+}

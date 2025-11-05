@@ -46,15 +46,31 @@
         <div class="actions">
           <span class="spinner" *ngIf="loading"></span>
           <button class="mini" (click)="copyIpa()" [disabled]="!ipaOnly">Copy</button>
+
         </div>
       </div>
-
-      <div class="output">
+      
+      <div class="output speak-container">
+        
+        <button class="speak-fab"
+                (click)="toggleSpeak()"
+                [class.active]="speaking"
+                [title]="speaking ? 'Stop' : 'Speak'">
+          
+          <svg *ngIf="!speaking" viewBox="0 0 24 24" class="ico">
+            <path d="M3 10v4h4l5 4V6l-5 4H3zm13.5 2a4.5 4.5 0 0 0-2.5-4.03v8.06A4.5 4.5 0 0 0 16.5 12zm0-7v2a7 7 0 0 1 0 10v2a9 9 0 0 0 0-14z"/>
+          </svg>
+         
+          <svg *ngIf="speaking" viewBox="0 0 24 24" class="ico">
+            <rect x="6" y="6" width="12" height="12" rx="2" ry="2"></rect>
+          </svg>
+        </button>
+    
         <div class="ipa" [class.placeholder]="!ipaOnly">
           {{ ipaOnly || 'Result will appear here' }}
         </div>
       </div>
-
+    
       <div class="toast" *ngIf="copied">Copied ✓</div>
     </div>
   </section>
