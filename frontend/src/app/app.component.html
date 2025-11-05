@@ -13,15 +13,15 @@
     </div>
     <nav class="tabs">
       <button class="tab" [class.active]="language==='ar-LB'" (click)="setLang('ar-LB')">
-        <span class="dot"></span> Arabic (Lebanese)
+        <img src="assets/flags/lb.png" alt="Arabic flag" class="flag" />Arabic (Lebanese)
       </button>
       <button class="tab" [class.active]="language==='fr-FR'" (click)="setLang('fr-FR')">
-        <span class="dot"></span> French
+        <img src="assets/flags/fr.png" alt="French flag" class="flag" />French
       </button>
       <button class="tab" [class.active]="language==='en-US'" (click)="setLang('en-US')">
-        <span class="dot"></span> English (US)
+       <img src="assets/flags/us.png" alt="English flag" class="flag" />English (US)
       </button>
-      <button class="swap" title="Swap layout" (click)="swapPanels()">⇄</button>
+     <!-- <button class="swap" title="Swap layout" (click)="swapPanels()">⇄</button>-->
     </nav>
   </header>
 

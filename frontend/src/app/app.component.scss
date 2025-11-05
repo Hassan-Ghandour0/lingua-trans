@@ -1,5 +1,5 @@
 :host { display:block; --bg:#0b1020; --card:#ffffff; --ink:#111827; --muted:#6d806b; --ring:#e5e7eb;
-    --brand:#6d28d9; --accent:#eef2ff; }
+    --brand:#2669fa; --accent:#eef2ff; }
 
 .page { min-height:100vh; background: radial-gradient(1200px 500px at 10% -10%, #1f2937 0, transparent 60%),
                            radial-gradient(1200px 500px at 90% -10%, #0ea5e9 0, transparent 60%),
@@ -9,14 +9,14 @@
     }
 
 
-.theme-ar { --brand:#071563; --accent:#74a1f5; }
-.theme-fr { --brand:#cc5555; --accent:#74a1f5; }
-.theme-en { --brand:#05a13e; --accent:#74a1f5; }
+.theme-ar {  --accent:#74a1f5; }
+.theme-fr {  --accent:#74a1f5; }
+.theme-en {  --accent:#74a1f5; }
 
 /* Header */
 .hero { max-width:1200px; margin:0 auto 16px; display:flex; flex-direction:column; gap:12px; }
 .brand { display:flex; gap:12px; align-items:center; color:#fff; }
-.logo { width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg,var(--brand),#9333ea);
+.logo { width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg,var(--brand),#0ea5e9);
     display:grid; place-items:center; color:#fff; font-weight:800; }
 h1 { margin:0; font-weight:800; letter-spacing:.2px; }
 .tagline { margin:0; opacity:.85; }
@@ -28,7 +28,7 @@ h1 { margin:0; font-weight:800; letter-spacing:.2px; }
 .tab:hover { transform:translateY(-1px); }
 .tab.active { background:var(--accent); border-color:color-mix(in srgb, var(--brand) 30%, #fff); }
 
-.swap { margin-left:auto; border:1px solid var(--ring); background:#fff; border-radius:10px; width:36px; height:36px;
+.swap { margin-left:auto; border:1px solid var(--ring); background:#3abb3a; border-radius:10px; width:45px; height:30px;
     cursor:pointer; }
 .swap:hover { background:#f9fafb; }
 
@@ -50,7 +50,7 @@ h1 { margin:0; font-weight:800; letter-spacing:.2px; }
 
 .output { background:#f8fafc; border:1px dashed var(--ring); border-radius:12px; padding:14px; min-height:160px; }
 .ipa { font-size:32px; font-weight:800; letter-spacing:.3px; }
-.ipa.placeholder { color:#574edd; font-weight:600; font-size:18px; }
+.ipa.placeholder { color:#6d806b; font-weight:600; font-size:18px; }
 
 /* toast + spinner */
 .toast { position:absolute; right:16px; bottom:16px; background:#111827; color:#fff; padding:6px 10px;
@@ -67,3 +67,13 @@ kbd { background:#111827; color:#fff; padding:1px 5px; border-radius:6px; font-s
 /* Responsive */
 @media (max-width:920px) { .panes{ grid-template-columns:1fr } }
 
+.flag {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-right: 8px;
+    box-shadow: none; 
+    border: none;     
+  }
+  
