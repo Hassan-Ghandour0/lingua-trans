@@ -1,13 +1,28 @@
+# ---------- Build Angular ----------
+    FROM node:20-alpine AS frontend
+    WORKDIR /app/frontend
+    COPY frontend/package*.json ./
+    RUN npm ci
+    COPY frontend/ ./
+    RUN npm run build -- --configuration=production --base-href "/"
+    
+    # ---------- Build Spring Boot ----------
+    FROM maven:3.9.6-eclipse-temurin-21 AS backend
+    WORKDIR /app
+    COPY backend/pom.xml backend/mvnw backend/.mvn/ ./backend/
+    RUN mvn -f backend/pom.xml -q -DskipTests dependency:go-offline
+    COPY backend/ ./backend/
 
-FROM eclipse-temurin:17-jdk AS build
-WORKDIR /app
-COPY . .
-RUN chmod +x mvnw && ./mvnw -B -DskipTests package
-
-
-FROM eclipse-temurin:17-jre
-WORKDIR /app
-ENV PORT=8080
-EXPOSE 8080
-COPY --from=build /app/target/*.jar app.jar
-CMD ["sh", "-c", "java -Dserver.port=${PORT} -jar app.jar"]
+    RUN rm -rf backend/src/main/resources/static/* && \
+        mkdir -p backend/src/main/resources/static && \
+        cp -r /app/frontend/dist/*/browser/* backend/src/main/resources/static/
+    RUN mvn -f backend/pom.xml -DskipTests clean package
+    
+    # ---------- Runtime ----------
+    FROM eclipse-temurin:21-jre
+    WORKDIR /app
+    COPY --from=backend /app/backend/target/*.jar app.jar
+    EXPOSE 10000
+    ENV PORT=10000
+    ENTRYPOINT ["java","-jar","app.jar","--server.port=${PORT}"]
+    

@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  API_URL: 'https://ipa-tr.onrender.com/api'
+  API_URL: 'http://localhost:8080/api'
 };
+
