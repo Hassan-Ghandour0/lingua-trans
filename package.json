@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/common": "^20.3.10",
+    "@angular/forms": "^20.3.10"
+  }
+}

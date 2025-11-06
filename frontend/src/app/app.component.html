@@ -31,7 +31,7 @@
     <div class="pane">
       <label class="label">Input</label>
       <textarea
-        (ngModel)="text"
+        [(ngModel)]="text"
         (input)="onInput($event)"
         class="textarea"
         [placeholder]="placeholder"

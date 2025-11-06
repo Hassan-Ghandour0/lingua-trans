@@ -1,24 +1,22 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { environment as env } from '../../environments/environment';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-export interface IpaRequest {
-  language: 'ar-LB' | 'fr-FR' | 'en-US';
-  text: string;
-}
-export interface IpaResponse {
-  language: string;
-  originalText: string;
-  ipa: string;
-}
+export interface IpaRequest { language: string; text: string; }
+export interface IpaResponse { language: string; originalText: string; ipa: string; }
 
 @Injectable({ providedIn: 'root' })
 export class IpaService {
-  private http = inject(HttpClient);
+  private base = environment.API_URL;  
 
-  transcribe(body: IpaRequest) {
-    const url = `${env.API_URL}/ipa/transcribe`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<IpaResponse>(url, body, { headers });
+  constructor(private http: HttpClient) {}
+
+  transcribe(payload: IpaRequest): Observable<IpaResponse> {
+    return this.http.post<IpaResponse>(`${this.base}/transcribe`, payload);
+  }
+
+  health(): Observable<string> {
+    return this.http.get(`${this.base}/health`, { responseType: 'text' });
   }
 }

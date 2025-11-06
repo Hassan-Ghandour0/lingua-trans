@@ -1,23 +1,26 @@
 package com.lingua.backend.config;
 
-// CorsConfig.java
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.List;
 
 @Configuration
 public class CorsConfig {
+
   @Bean
-  public WebMvcConfigurer corsConfigurer() {
-    return new WebMvcConfigurer() {
-      @Override
-      public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("https://ipa-tr.onrender.com", "http://localhost:4200")
-                .allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
-      }
-    };
+  public CorsFilter corsFilter() {
+    CorsConfiguration cfg = new CorsConfiguration();
+    cfg.setAllowCredentials(true);
+    cfg.setAllowedOrigins(List.of("http://localhost:4200"));
+    cfg.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
+    cfg.setAllowedHeaders(List.of("*"));
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", cfg);
+    return new CorsFilter(source);
   }
 }
-
