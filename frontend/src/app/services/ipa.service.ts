@@ -12,8 +12,8 @@ export class IpaService {
 
   constructor(private http: HttpClient) {}
 
-  transcribe(payload: IpaRequest): Observable<IpaResponse> {
-    return this.http.post<IpaResponse>(`${this.base}/transcribe`, payload);
+  transcribe(req: IpaRequest) {
+    return this.http.post<IpaResponse>(`${this.base}/ipa/transcribe`, req);
   }
 
   health(): Observable<string> {
