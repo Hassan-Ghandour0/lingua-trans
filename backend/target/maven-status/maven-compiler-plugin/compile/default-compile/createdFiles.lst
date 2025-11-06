@@ -1,1 +1,7 @@
 com\lingua\backend\BackendApplication.class
+com\lingua\backend\ipa\dto\IpaRequest.class
+com\lingua\backend\config\WebController.class
+com\lingua\backend\ipa\dto\IpaResponse.class
+com\lingua\backend\config\CorsConfig.class
+com\lingua\backend\ipa\IpaService.class
+com\lingua\backend\ipa\IpaController.class

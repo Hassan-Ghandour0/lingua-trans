@@ -15,14 +15,20 @@ public class CorsConfig {
   public CorsFilter corsFilter() {
     CorsConfiguration cfg = new CorsConfiguration();
     cfg.setAllowCredentials(true);
-    
-    
-    cfg.addAllowedOriginPattern("*");
 
-    
+
+    cfg.setAllowedOrigins(List.of(
+        "http://localhost:4200",
+        "https://ipa-tr.onrender.com"
+    ));
+
+ 
     cfg.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     cfg.setAllowedHeaders(List.of("*"));
-    
+
+
+    cfg.setExposedHeaders(List.of("Authorization", "Content-Type"));
+
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", cfg);
     return new CorsFilter(source);
