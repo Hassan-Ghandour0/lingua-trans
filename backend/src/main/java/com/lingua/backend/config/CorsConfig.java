@@ -17,10 +17,8 @@ public class CorsConfig {
     cfg.setAllowCredentials(true);
     
     
-    cfg.setAllowedOrigins(List.of(
-        "http://localhost:4200",
-        "https://ipa-tr.onrender.com"   
-    ));
+    cfg.addAllowedOriginPattern("*");
+
     
     cfg.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     cfg.setAllowedHeaders(List.of("*"));
