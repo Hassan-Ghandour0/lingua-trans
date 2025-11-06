@@ -19,4 +19,7 @@ export class IpaService {
   health(): Observable<string> {
     return this.http.get(`${this.base}/health`, { responseType: 'text' });
   }
+  transcribe1(body: IpaRequest) {
+    return this.http.post<IpaResponse>(`${this.base}/ipa/transcribe`, body);
+  }
 }

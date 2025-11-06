@@ -31,11 +31,13 @@
     <div class="pane">
       <label class="label">Input</label>
       <textarea
-        [(ngModel)]="text"
-        (input)="onInput($event)"
-        class="textarea"
-        [placeholder]="placeholder"
-        rows="1"></textarea>
+      class="textarea"
+      [(ngModel)]="text"
+      (input)="onInput($event)"
+      [placeholder]="placeholder"
+      rows="1">
+    </textarea>
+    
       <div class="hint">Auto-transcribes as you type •</div>
     </div>
 
