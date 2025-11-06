@@ -71,7 +71,7 @@ export class AppComponent {
         error: () => { this.loading = false; }
       });
   }
-
+ 
   @HostListener('document:keydown.control.enter') forceTranscribe() {
     if (this.text.trim()) this.autoTranscribe();
   }
