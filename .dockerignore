@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vscode
+**/node_modules
+**/.angular
+**/.cache
+**/dist
+**/target
+Dockerfile
+.dockerignore
