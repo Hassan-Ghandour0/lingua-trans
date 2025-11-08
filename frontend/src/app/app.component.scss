@@ -105,6 +105,30 @@ kbd { background:#111827; color:#fff; padding:1px 5px; border-radius:6px; font-s
 .speak-fab .ico {
   width: 18px;
   height: 18px;
-  fill: #374151; /* Slate-700 */
+  fill: #374151; 
 }
 .page { zoom: 1.25; }
+
+
+.tabs-mobile {
+  display: none;
+}
+.tabs-desktop { display: flex; gap: 8px; align-items: center; }
+.lang-select {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background: #fff;
+  border: 1px solid var(--ring);
+  border-radius: 12px;
+  padding: 10px 30px;
+  font-size: 1rem; font-weight: 600; 
+  width: 100%; max-width: 280px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg  width='10' height='6'  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23111827'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; background-size: 12px 8px;color: #2669fa;
+}
+
+
+@media (max-width: 768px) {
+  .tabs-desktop { display: none; }
+  .tabs-mobile  { display: block; }
+}
+
