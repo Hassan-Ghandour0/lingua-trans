@@ -1,17 +1,15 @@
 :host { display:block; --bg:#0b1020; --card:#ffffff; --ink:#111827; --muted:#6d806b; --ring:#e5e7eb;
     --brand:#2669fa; --accent:#eef2ff; }
 
-.page { min-height:100vh; background: radial-gradient(1200px 500px at 10% -10%, #1f2937 0, transparent 60%),
+.page { min-height:73vh; background: radial-gradient(1200px 500px at 10% -10%, #1f2937 0, transparent 60%),
                            radial-gradient(1200px 500px at 90% -10%, #0ea5e9 0, transparent 60%),
                            var(--bg);
     padding:28px 16px; color:var(--ink);                 
    
     }
-
 .theme-ar {  --accent:#74a1f5; }
 .theme-fr {  --accent:#74a1f5; }
 .theme-en {  --accent:#74a1f5; }
-
 /* Header */
 .hero { max-width:1200px; margin:0 auto 16px; display:flex; flex-direction:column; gap:12px; }
 .brand { display:flex; gap:12px; align-items:center; color:#fff; }
@@ -126,5 +124,8 @@ kbd { background:#111827; color:#fff; padding:1px 5px; border-radius:6px; font-s
 @media (max-width: 768px) {
   .tabs-desktop { display: none; }
   .tabs-mobile  { display: block; }
+  .output { background:#f8fafc; border:1px dashed var(--ring); border-radius:16px; padding:14px; min-height:70px; }
+  .textarea { width:100%; border:none; outline:none; resize:vertical; min-height:70px; font-size:16px; line-height:1.6; }
+
 }
 

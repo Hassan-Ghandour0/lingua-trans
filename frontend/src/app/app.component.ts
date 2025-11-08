@@ -13,7 +13,7 @@ import { debounceTime, Subject } from 'rxjs';
 })
 export class AppComponent {
   [x: string]: any;
-  language: 'ar-LB' | 'fr-FR' | 'en-US' = 'ar-LB';
+  language: 'ar-LB' | 'fr-FR' | 'en-US' = 'fr-FR';
   text = '';
   ipaOnly = '';
   loading = false;

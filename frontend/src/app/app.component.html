@@ -13,22 +13,23 @@
     </div>
     <nav class="tabs">
       <div class="tabs-desktop">
-      <button class="tab" [class.active]="language==='ar-LB'" (click)="setLang('ar-LB')">
-        <img src="assets/flags/lb.png" alt="Arabic flag" class="flag" />Arabic (Lebanese)
-      </button>
+      
       <button class="tab" [class.active]="language==='fr-FR'" (click)="setLang('fr-FR')">
         <img src="assets/flags/fr.png" alt="French flag" class="flag" />French
       </button>
       <button class="tab" [class.active]="language==='en-US'" (click)="setLang('en-US')">
        <img src="assets/flags/us.png" alt="English flag" class="flag" />English (US)
       </button>
+      <button class="tab" [class.active]="language==='ar-LB'" (click)="setLang('ar-LB')">
+        <img src="assets/flags/lb.png" alt="Arabic flag" class="flag" />Arabic (Lebanese)
+      </button>
       </div>
 
       <div class="tabs-mobile">
         <select [(ngModel)]="language" (change)="setLang(language)" class="lang-select">
-          <option value="ar-LB">Arabic</option>
           <option value="fr-FR">French</option>
           <option value="en-US">English</option>
+          <option value="ar-LB">Arabic</option>
         </select>
       </div>
     </nav>
