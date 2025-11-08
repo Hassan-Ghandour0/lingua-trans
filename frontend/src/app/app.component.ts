@@ -136,4 +136,30 @@ export class AppComponent {
     this.speaking = false;
   }
   
+
+  menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
 }
+
+getFlag(lang: string) {
+  switch (lang) {
+    case 'ar-LB': return 'assets/flags/lb.png';
+    case 'fr-FR': return 'assets/flags/fr.png';
+    case 'en-US': return 'assets/flags/us.png';
+    default: return '';
+  }
+}
+
+getLangName(lang: string) {
+  switch (lang) {
+    case 'ar-LB': return 'Arabic';
+    case 'fr-FR': return 'French';
+    case 'en-US': return 'English';
+    default: return '';
+  }
+}
+
+}
+

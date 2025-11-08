@@ -26,11 +26,24 @@
       </div>
 
       <div class="tabs-mobile">
-        <select [(ngModel)]="language" (change)="setLang(language)" class="lang-select">
-          <option value="fr-FR">French</option>
-          <option value="en-US">English</option>
-          <option value="ar-LB">Arabic</option>
-        </select>
+        
+        <div class="lang-dropdown" [class.open]="menuOpen" (click)="toggleMenu()">
+          <div class="selected">
+            <img [src]="getFlag(language)" class="flag" alt="">
+            <span>{{ getLangName(language) }}</span>
+          </div>
+        
+          <ul *ngIf="menuOpen" class="menu">
+            
+            <li (click)="setLang('fr-FR')">
+              <img src="assets/flags/fr.png" class="flag">French</li>
+            <li (click)="setLang('en-US')">
+              <img src="assets/flags/us.png" class="flag">English (US)</li>
+            <li (click)="setLang('ar-LB')">
+              <img src="assets/flags/lb.png" class="flag">Arabic (Lebanese)</li>
+          </ul>
+        </div>
+        
       </div>
     </nav>
   </header>
