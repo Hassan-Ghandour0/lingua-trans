@@ -1,42 +1,109 @@
 {
-    "language": "ar-LB",
-    "map": {
-      "ال": "al",
-      "ا": "a",
-      "آ": "aː",
-      "أ": "a",
-      "إ": "i",
-      "ى": "a",
-      "ء": "ʔ",
-      "ة": "a",
-  
-      "ب": "b",
-      "ت": "t",
-      "ث": "θ",
-      "ج": "d͡ʒ",
-      "ح": "ħ",
-      "خ": "x",
-      "د": "d",
-      "ذ": "ð",
-      "ر": "r",
-      "ز": "z",
-      "س": "s",
-      "ش": "ʃ",
-      "ص": "sˤ",
-      "ض": "dˤ",
-      "ط": "tˤ",
-      "ظ": "ðˤ",
-      "ع": "ʕ",
-      "غ": "ɣ",
-      "ف": "f",
-      "ق": "q",
-      "ك": "k",
-      "ل": "l",
-      "م": "m",
-      "ن": "n",
-      "ه": "h",
-      "و": "w",
-      "ي": "j"
+  "language": "ar-LB",
+  "version": "1.2",
+  "meta": {
+    "desc": "Levantine (Lebanese) with full diacritics handling, shadda, sun-letter assimilation, long vowels, diphthongs, ta marbuta finals, and qaf modes.",
+    "sunLetters": "ت ث د ذ ر ز س ش ص ض ط ظ ل ن",
+    "defaults": {
+      "th": "s",
+      "dh": "z",
+      "za": "zˤ",
+      "jim": "ʒ",
+      "qaf": "ʔ"
     }
+  },
+  "normalize": {
+    "remove": ["ـ", "‍", "‌", "﻿"],
+    "map": {
+      "ٱ": "ا",
+      "ٮ": "ب",
+      "ى": "ى",
+      "ٰ": "",
+      "ٖ": "", "ٗ": "", "٘": "", "ٙ": "", "ٚ": "", "ٜ": "", "ٝ": "", "ٞ": ""
+    }
+  },
+  "map": {
+    "ء": "ʔ",
+    "أ": "ʔa",
+    "إ": "ʔi",
+    "ؤ": "ʔu",
+    "ئ": "ʔi",
+    "آ": "aː",
+    "ا": "a",
+    "ى": "aː",
+    "ه": "h",
+    "ة": "e",
+
+    "ب": "b",  "ت": "t",
+    "ث": "s",  "ج": "ʒ",
+    "ح": "ħ",  "خ": "x",
+    "د": "d",  "ذ": "z",
+    "ر": "r",  "ز": "z",
+    "س": "s",  "ش": "ʃ",
+    "ص": "sˤ", "ض": "dˤ",
+    "ط": "tˤ", "ظ": "zˤ",
+    "ع": "ʕ",  "غ": "ɣ",
+    "ف": "f",  "ق": "ʔ",
+    "ك": "k",  "ل": "l",
+    "م": "m",  "ن": "n",
+    "و": "w",  "ي": "j",
+
+    "ً": "tanwin_a",
+    "ٌ": "tanwin_u",
+    "ٍ": "tanwin_i",
+    "َ": "a_vow",
+    "ُ": "u_vow",
+    "ِ": "i_vow",
+    "ْ": "sukun",
+    "ّ": "shadda"
+  },
+  "rules": [
+    { "pattern": "\\s+", "replace": " " },
+
+    { "pattern": "([bcdfghjklmnpqrstvwxyzʔʕħxɣʒʃsˤdˤtˤzˤr])shadda", "replace": "$1$1" },
+    { "pattern": "(.)shadda", "replace": "$1$1" },
+
+    { "pattern": "\\bal(?=\\s*[تثدذرزسشصضطظللن])", "replace": "e" },
+    { "pattern": "(?<=\\be)\\s*([تثدذرزسشصضطظللن])", "replace": "$1$1" },
+    { "pattern": "\\bal\\b", "replace": "el" },
+
+    { "pattern": "a_vow\\s*ا", "replace": "aː" },
+    { "pattern": "i_vow\\s*ي", "replace": "iː" },
+    { "pattern": "u_vow\\s*و", "replace": "uː" },
+
+    { "pattern": "a_vow\\s*و(?=\\b|\\W)", "replace": "aw" },
+    { "pattern": "a_vow\\s*ي(?=\\b|\\W)", "replace": "ay" },
+
+    { "pattern": "a_vow", "replace": "a" },
+    { "pattern": "i_vow", "replace": "i" },
+    { "pattern": "u_vow", "replace": "u" },
+
+    { "pattern": "sukun", "replace": "" },
+
+    { "pattern": "ة\\b", "replace": "e" },
+    { "pattern": "ه\\b", "replace": "e" },
+
+    { "pattern": "ق", "replace": "ʔ" },
+
+    { "pattern": "(?<=[aAeEiIoOuU])و", "replace": "uː" },
+    { "pattern": "(?<=[aAeEiIoOuU])ي", "replace": "iː" },
+
+    { "pattern": "و", "replace": "w" },
+    { "pattern": "ي", "replace": "j" },
+
+    { "pattern": "aa", "replace": "aː" },
+    { "pattern": "ii", "replace": "iː" },
+    { "pattern": "uu", "replace": "uː" },
+
+    { "pattern": "tanwin_a\\b", "replace": "a" },
+    { "pattern": "tanwin_u\\b", "replace": "u" },
+    { "pattern": "tanwin_i\\b", "replace": "i" },
+
+    { "pattern": " +", "replace": " " }
+  ],
+  "stress": {
+    "enable": false,
+    "rule": "final heavy syllable -> primary stress; else penultimate",
+    "mark": "ˈ"
   }
-  
+}

@@ -21,7 +21,7 @@ export class AppComponent {
   copied = false;
 
   tagline = 'Turn any text into clean IPA — fast and accurate.';
-  placeholder = 'اكتب النص هون… / Écrivez ici… / Type here…';
+  placeholder = '';
 
   private api = inject(IpaService);
   private textChanged = new Subject<void>();
@@ -79,7 +79,7 @@ export class AppComponent {
   private updateCopy() {
     if (this.language === 'ar-LB') {
       this.tagline = 'حوّل النص إلى IPA — بسرعة، بوضوح، وبأعلى دقة.';
-      this.placeholder = 'اكتب النص';
+      this.placeholder = ' اكتب النص...  ';
     } else if (this.language === 'fr-FR') {
       this.tagline = 'Transcrivez n’importe quel texte en API — clair et net.';
       this.placeholder = 'Écrivez votre texte ici…';
